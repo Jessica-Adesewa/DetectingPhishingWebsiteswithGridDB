@@ -20,7 +20,8 @@ classifier = LogisticRegression(random_state=0, solver='lbfgs')
 
 classifier.fit(X_train, y_train)
 
-print(classifier.predict(X_test))
+y_pred = classifier.predict(X_test)
+print(y_pred)
 
 # Accuracy of the model
 acc = classifier.score(X_test, y_test)
@@ -33,3 +34,12 @@ The Accuracy of our model, using the Logistic Regression Classifier
 {accuracy}
 """
 )
+
+#Confusion matrix
+from sklearn.metrics import confusion_matrix
+cMatrix = confusion_matrix(y_test, y_pred)
+print(cMatrix)
+
+# Visualizing Data
+import seaborn as sns
+sns.pairplot(dataset)
